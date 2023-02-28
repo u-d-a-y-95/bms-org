@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express, { Application, NextFunction, Request, Response } from "express";
+import { rootRouter } from "./routes";
 
 const app: Application = express();
 
@@ -21,7 +22,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     next();
   }
 });
-app.get("/", (req: Request, res: Response) => {
+
+app.use("/", rootRouter);
+
+app.get("/test", (req: Request, res: Response) => {
   res.json("bms-org is running good");
 });
 
