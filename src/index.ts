@@ -22,7 +22,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
 });
 app.get("/", (req: Request, res: Response) => {
-  res.json("bms-org is runnig good");
+  res.json("bms-org is running good");
 });
 
 const port = process.env.PORT;
