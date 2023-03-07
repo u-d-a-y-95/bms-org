@@ -7,19 +7,19 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://bms-admin:bms-admin@bms-db:5432/BMS?schema=BMS-ORG"
 }
 
 model Company {
   id        String     @id @default(cuid())
   name      String
-  email     String     @unique
+  email     String     @unique()
   mobile    String?
   address   String?
   logo      String?
   Employee  Employee[]
   createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  updatedAt DateTime   @updatedAt()
 }
 
 model Employee {
@@ -33,7 +33,7 @@ model Employee {
   company   Company  @relation(fields: [companyId], references: [id])
   companyId String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt()
 }
 
 // Enum List
