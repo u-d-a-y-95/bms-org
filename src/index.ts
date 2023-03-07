@@ -3,6 +3,7 @@ dotenv.config();
 
 import express, { Application, NextFunction, Request, Response } from "express";
 import { rootRouter } from "./routes";
+import { mq } from "./mq";
 
 const app: Application = express();
 
@@ -25,8 +26,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use("/", rootRouter);
 
-app.get("/test", (req: Request, res: Response) => {
-  res.json("bms-org is running good");
+
+
+
+app.get("/health", (req: Request, res: Response) => {
+  res.sendStatus(200).send("ok")
 });
 
 const port = process.env.PORT;

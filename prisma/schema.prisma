@@ -27,6 +27,7 @@ model Employee {
   name      String
   email     String?
   mobile    String   @unique()
+  password  String
   avater    String?
   address   String?
   role      Role     @default(MEMBER)
