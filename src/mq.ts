@@ -12,10 +12,10 @@ class RabbitMQ {
   public async connect(): Promise<void> {
     if (!this.channel) {
       this.connection = await amqp.connect({
-        hostname: "bms-rabbitmq",
-        port: 5672,
-        username: "admin",
-        password: "admin",
+        hostname: process.env.RABBITMQ_HOST,
+        port: Number(process.env.RABBITMQ_PORT),
+        username: process.env.RABBITMQ_USER,
+        password: process.env.RABBITMQ_PASS,
       });
       this.channel = await this.connection.createChannel();
       consumeMessage(this.channel);

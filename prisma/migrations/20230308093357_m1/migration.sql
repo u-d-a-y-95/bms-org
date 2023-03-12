@@ -21,6 +21,7 @@ CREATE TABLE "Employee" (
     "name" TEXT NOT NULL,
     "email" TEXT,
     "mobile" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "avater" TEXT,
     "address" TEXT,
     "role" "Role" NOT NULL DEFAULT 'MEMBER',

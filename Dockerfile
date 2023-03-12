@@ -1,7 +1,7 @@
-FROM node
+FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm i
+RUN npm install
 COPY . .
 EXPOSE 5002
-CMD [ "npm","run","dev" ]
+CMD [ "npm","run","dev" ] 

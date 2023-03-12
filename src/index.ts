@@ -30,7 +30,7 @@ app.use("/", rootRouter);
 
 
 app.get("/health", (req: Request, res: Response) => {
-  res.sendStatus(200).send("ok")
+  res.status(200).send("ok")
 });
 
 const port = process.env.PORT;
